@@ -95,26 +95,32 @@ body {
 main.container {
     @include width($container__form-xs);
 	height: 100vh;
-	margin-top: 100px;
+	//margin-top: 100px;
 	overflow: auto;
+	h1{
+	  font-weight: $font_weight-medium;
+      font-size: 1.8em;
+	  position:relative;
+	  top: 80px;
+	  left: 20%;
+	  @media screen and (min-width: $container__form-xxl * 1px) {
+	      left: 18%;
+	  }
+	}
 	
 	article{
-	   @include padding(50px);
-	   @include margin(50px,0);
+	   
 	   @include border-radius(15px);
 	   box-shadow: 5px 5px 15px;
 	   height: 100%;
 	   
 	   section:nth-of-type(1){
-	      h1{
-		    font-weight: $font_weight-medium;
-			font-size: 1.2em;
-		  }
+	      height: 400px;
 		  strong{
 		    font-weigh: $font_weight-extrabold;
 			font-size: 4em;
 		  }
-		  span:first-of-type{
+		  div span:first-of-type{
 		    //of 100 text
 			font-size: 0.7em;
 		  }
@@ -142,10 +148,11 @@ main.container {
 	        }
 	      }
 	      @media screen and (min-width: $container__form-xxl * 1px) {
-	        min-height: 500px;
+	        min-height: 580px;
 	      }
 	   }
        section:nth-of-type(2){
+	      
 	      .inherit-position{
 		     position:inherit;
 		  }
@@ -235,6 +242,7 @@ main.container {
 	         width: 100%;
 			 height: 80px;
 			 position:relative;
+			 
 	         @include border-radius(12px);
 	         @include bg-color(
                map-get($colors, Dark gray blue),
@@ -247,7 +255,7 @@ main.container {
                );
 		     }
 			 @media screen and(min-width: $container__form-xxl * 1px){
-			   bottom: -15px;
+			   top: 20px;
 			 }
 	      }
 	      @media screen and (min-width: $container__form-xxl * 1px) {

@@ -12928,24 +12928,28 @@ body {
 main.container {
   width: 375px;
   height: 100vh;
-  margin-top: 100px;
   overflow: auto; }
+  main.container h1, main.container .h1 {
+    font-weight: 500;
+    font-size: 1.8em;
+    position: relative;
+    top: 80px;
+    left: 20%; }
+    @media screen and (min-width: 1440px) {
+      main.container h1, main.container .h1 {
+        left: 18%; } }
   main.container article {
-    padding: 50px;
-    margin: 50px, 0;
     border-radius: 15px;
     box-shadow: 5px 5px 15px;
     height: 100%; }
     main.container article section:nth-of-type(1) {
+      height: 400px;
       border-radius: 15px;
       background: linear-gradient(#7857ff, #2e2be9); }
-      main.container article section:nth-of-type(1) h1, main.container article section:nth-of-type(1) .h1 {
-        font-weight: 500;
-        font-size: 1.2em; }
       main.container article section:nth-of-type(1) strong {
         font-weigh: 800;
         font-size: 4em; }
-      main.container article section:nth-of-type(1) span:first-of-type {
+      main.container article section:nth-of-type(1) div span:first-of-type {
         font-size: 0.7em; }
       main.container article section:nth-of-type(1) h2, main.container article section:nth-of-type(1) .h2 {
         font-size: 2em;
@@ -12964,7 +12968,7 @@ main.container {
             height: 200px; } }
       @media screen and (min-width: 1440px) {
         main.container article section:nth-of-type(1) {
-          min-height: 500px; } }
+          min-height: 580px; } }
     main.container article section:nth-of-type(2) {
       padding: 25px; }
       main.container article section:nth-of-type(2) .inherit-position {
@@ -13030,7 +13034,7 @@ main.container {
           background-color: #1125d4; }
         @media screen and (min-width: 1440px) {
           main.container article section:nth-of-type(2) .btn-primary {
-            bottom: -15px; } }
+            top: 20px; } }
       @media screen and (min-width: 1440px) {
         main.container article section:nth-of-type(2) {
           min-height: 500px; } }

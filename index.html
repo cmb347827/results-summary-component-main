@@ -14,10 +14,11 @@
 
 </head>
 <body dir='ltr'>
-      <main role='main' class='container'>
+      <main class='container'>
+	      <h1 class='light-font' id='your_results'>Your Results</h1>
 	      <article class='row '>
-		        <section role='region' aria-labelledby='your_results' class='col-xxl-6 d-flex flex-column align-items-center justify-content-center'>
-				    <h1 class='red light-font' id='your_results'>Your Results</h1>
+		        <h2 class='sr-only'>Breakdown of your results</h2>
+		        <section aria-labelledby='your_results' class='col-xxl-6 d-flex flex-column align-items-center justify-content-center'>
 					<div id='circle' class='score d-flex flex-column justify-content-center align-items-center'>
 					    <strong aria-hidden='true'>76</strong>
 						<span class='light-font' aria-hidden='true'>of 100</span>
@@ -26,20 +27,20 @@
 					<h2>Great</h2>
 					<p class='text-center'>You scored higher than 65% of the people who have taken these tests</p>
 				</section>
-				<section  role='region' aria-labelledby='summary' class='col-xxl-6'>
+				<section  aria-labelledby='summary' class='col-xxl-6'>
 				    <h2 id='summary'>Your test results are loading...</h2>
 					<div class='results'></div>
 					<button class='btn btn-primary'>Continue</button>
 				</section>
 		  </article>
-          <footer role="contentinfo">
+          	  
+       </main>
+       <footer>
 	            <div class="attribution mt-5">
                   <span class='me-2'>Challenge by</span><a class='me-2' href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a> 
                   <span class='me-2'>Coded by</span><a href="https://www.frontendmentor.io/profile/cmb347827">CMB</a>
                 </div>
-	      </footer>		  
-       </main>
-       
+	   </footer>	
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous"></script>
       <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous"></script-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
