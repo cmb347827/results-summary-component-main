@@ -1,0 +1,283 @@
+
+@import 'custom.scss';
+
+$container__form-xs: 375;
+$container__form-xxl: 1440;
+$container__form-xxl-min: 1439;
+
+$font_size-18: 18px;
+$font_size-16: 16px;
+$font-size-8: 8px;
+$font_weight-normal: 400;
+$font_weight-medium: 500;
+$font_weight-bold: 700;
+$font_weight-extrabold:800;
+
+
+$colors: (
+  Light red: hsl(0, 100%, 67%),
+  Orangey yellow: hsl(39, 100%, 56%),
+  Green teal: hsl(166, 100%, 37%),
+  Cobalt blue: hsl(234, 85%, 45%),
+  White: hsl(0, 0%, 100%),
+  Pale blue: hsl(221, 100%, 96%),
+  Light lavender: hsl(241, 100%, 89%),
+  Dark gray blue: hsl(224, 30%, 27%),
+);
+$fallback-colors: (
+  Salmon FC6 DarkSeaGreen Blue White AliceBlue Plum SteelBlue
+);
+
+@mixin background($url,$position:auto,$size:auto,$repeat:no-repeat,$fixed:fixed,$color:white){
+    background: url($url) $position/$size $repeat $fixed $color; 
+}
+@mixin font-color($color, $fallback-color) {
+  color: $fallback-color;
+  color: $color;
+}
+
+@mixin bg-color($color, $fallback-color) {
+  background-color: $fallback-color;
+  background-color: $color;
+}
+
+@mixin width($grid-size) {
+  width: $grid-size * 1px;
+}
+@mixin max-width($grid-size) {
+  max-width: $grid-size * 1px;
+}
+@mixin min-width($grid-size) {
+  min-width: $grid-size * 1px;
+}
+@mixin border-radius($radius...) {
+  border-radius: $radius;
+}
+@mixin margin($args...) {
+  margin: $args;
+}
+@mixin padding($args...) {
+  padding: $args;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  
+  font: $font_weight-normal $font_size-18 'Hanken Grotesk', sans-serif;
+  
+  @include font-color(
+       map-get($colors, White),
+       nth($fallback-colors, 5)
+  );
+}
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+main.container {
+    @include width($container__form-xs);
+	height: 100vh;
+	margin-top: 100px;
+	overflow: auto;
+	
+	article{
+	   @include padding(50px);
+	   @include margin(50px,0);
+	   @include border-radius(15px);
+	   box-shadow: 5px 5px 15px;
+	   height: 100%;
+	   
+	   section:nth-of-type(1){
+	      h1{
+		    font-weight: $font_weight-medium;
+			font-size: 1.2em;
+		  }
+		  strong{
+		    font-weigh: $font_weight-extrabold;
+			font-size: 4em;
+		  }
+		  span:first-of-type{
+		    //of 100 text
+			font-size: 0.7em;
+		  }
+		  h2{
+		    font-size: 2em;
+			font-weight: $font_weight-bold;
+		  }
+		  .light-font{
+		     @include font-color(
+                 map-get($colors, Light lavender),
+                 nth($fallback-colors, 7)
+             );
+			 
+		  }
+	      @include border-radius(15px);
+	      background: linear-gradient(hsl(252, 100%, 67%),hsl(241, 81%, 54%));
+	      div#circle{
+	        width: 100px;
+		    height: 100px;
+		    @include border-radius(50%);
+	        background: linear-gradient(hsla(256, 72%, 46%, 1),hsla(241, 72%, 46%, 0));
+			@media screen and (min-width: $container__form-xxl * 1px) {
+	            width: 200px;
+		        height: 200px;
+	        }
+	      }
+	      @media screen and (min-width: $container__form-xxl * 1px) {
+	        min-height: 500px;
+	      }
+	   }
+       section:nth-of-type(2){
+	      .inherit-position{
+		     position:inherit;
+		  }
+	      @include padding(25px);
+	      #summary{
+		     position:relative;
+			 top: -30px;
+		     @include font-color(
+               map-get($colors, Dark gray blue),
+               nth($fallback-colors, 8)
+             );
+		  }
+	      .icon{
+		     width: max(20px, 35px);
+			 height: max(20px, 35px);
+		  }
+		  .results p{
+		      @include padding(5px);
+			  @include border-radius(15px);
+		      display:flex;
+			  align-items: center;
+		      width: 100%;
+			  height: 80px;
+			  &:first-of-type{
+			      @include font-color(
+                     map-get($colors, Light red),
+                     nth($fallback-colors, 1)
+                  );
+			      @include bg-color(
+                     lighten(map-get($colors, Light red),33),
+                     nth($fallback-colors, 1)
+                  );
+			  }
+			  &:nth-of-type(2){
+			      @include font-color(
+                     map-get($colors, Orangey yellow),
+                     nth($fallback-colors, 2)
+                  );
+			      @include bg-color(
+                     lighten(map-get($colors, Orangey yellow),40),
+                     nth($fallback-colors, 2)
+                  );
+			  }
+			  &:nth-of-type(3){
+			      @include font-color(
+                     map-get($colors, Green teal),
+                     nth($fallback-colors, 3)
+                  );
+			      @include bg-color(
+                     lighten(map-get($colors, Green teal),51),
+                     nth($fallback-colors, 3)
+                  );
+			  }
+			  &:last-of-type{
+			      @include font-color(
+                     map-get($colors, Cobalt blue),
+                     nth($fallback-colors, 4)
+                  );
+			      @include bg-color(
+                     lighten(map-get($colors, Cobalt blue),53),
+                     nth($fallback-colors, 4)
+                  );
+			  }
+		  }
+		  .right-dark-font0,.right-dark-font1,.right-dark-font2,.right-dark-font3{
+		     position:relative;
+			 @include font-color(
+                 map-get($colors, Dark gray blue),
+                 nth($fallback-colors, 8)
+             );   
+		  }
+		  .right-dark-font0,.right-dark-font1{
+		     left: 25%;
+		     @media screen and (min-width: $container__form-xxl * 1px) {
+	            left: 65%;
+	         }
+		  }
+		  .right-dark-font2,.right-dark-font3{
+		     left: 32%;
+		     @media screen and (min-width: $container__form-xxl * 1px) {
+	            left: 68%;
+	         }
+		  }
+		  
+		  
+	      .btn-primary{
+	         width: 100%;
+			 height: 80px;
+			 position:relative;
+	         @include border-radius(12px);
+	         @include bg-color(
+               map-get($colors, Dark gray blue),
+               nth($fallback-colors, 8)
+             );
+		     &:hover{
+		       @include bg-color(
+                  map-get($colors, Cobalt blue),
+                  nth($fallback-colors, 4)
+               );
+		     }
+			 @media screen and(min-width: $container__form-xxl * 1px){
+			   bottom: -15px;
+			 }
+	      }
+	      @media screen and (min-width: $container__form-xxl * 1px) {
+	        min-height: 500px;
+	      }
+	   }
+       @media screen and (min-width: $container__form-xxl * 1px) {
+	      min-height: 500px;
+	   }
+	}		
+    
+    @media screen and (min-width: $container__form-xxl * 1px) {
+	   
+       @include width($container__form-xxl);
+	   @include padding(150px);
+	   
+	   
+    }
+  
+}
+
+footer {
+  position:relative;
+  top: 150px;
+  bottom: 50px;
+  .attribution {
+    font-size: $font_size-8;
+    text-align: center;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+}
