@@ -175,7 +175,7 @@ main.container {
                      nth($fallback-colors, 1)
                   );
 			      @include bg-color(
-                     lighten(map-get($colors, Light red),33),
+                     lighten(map-get($colors, Light red),31),
                      nth($fallback-colors, 1)
                   );
 			  }
