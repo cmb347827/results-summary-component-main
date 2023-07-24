@@ -13,25 +13,8 @@ $(window).resize(function(){
   document.querySelector(selector).addEventListener('click', handler);
 };*/
 
-async function getJson() {
-  const requestURL =
-    "https://corsproxy.io/?https://www.jsonkeeper.com/b/R41L";
-  const request = new Request(requestURL);
 
-  const response = await fetch(request);
-  const data = await response.json();
-  console.log(data);
-  const results= document.querySelector('.results');
-  let array=[];
-  data.forEach((element,index) => {
-		//empty alt for aria as are decorative img
-	    array.push( `<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`);
-		
-  });
-  results.innerHTML = array.join(' ');
-}
-
-/*function getJson() {
+function getJson() {
     return fetch('https://corsproxy.io/?https://www.jsonkeeper.com/b/R41L')
      .then(response => response.json())
      .then(response => {return response;})
@@ -43,19 +26,19 @@ async function getJson() {
 async function displayData(){
 	const results= document.querySelector('.results');
 	const data= await(getJson());
-	
+	let array=[];
 	data.forEach((element,index) => {
 		//empty alt for aria as are decorative img
-	    results.innerHTML += `<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`;
-		
+	    array.push(`<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`);
     });
-}*/
+	results.innerHTML = array.join(' ');
+}
 
 
 
 $(window).on('load',function(){
 	
-	getJson();
+	displayData();
 	const summary= document.querySelector('#summary');
 	summary.textContent = `Summary`;
 });
