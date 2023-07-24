@@ -20,13 +20,15 @@ async function getJson() {
 
   const response = await fetch(request);
   const data = await response.json();
+  console.log(data);
   const results= document.querySelector('.results');
+  let array=[];
   data.forEach((element,index) => {
 		//empty alt for aria as are decorative img
-	    results.innerHTML += `<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`;
+	    array.push( `<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`);
 		
   });
-  
+  results.innerHTML = array.join(' ');
 }
 
 /*function getJson() {
