@@ -12,7 +12,19 @@ $(window).resize(function(){
 /*const onClick = (selector, handler) => {
   document.querySelector(selector).addEventListener('click', handler);
 };*/
-
+function replaceHtml(el, html) {
+	let oldEl = typeof el === "string" ? document.querySelector(el) : el;
+	/*@cc_on // Pure innerHTML is slightly faster in IE
+		oldEl.innerHTML = html;
+		return oldEl;
+	@*/
+	let newEl = oldEl.cloneNode(false);
+	newEl.innerHTML = html;
+	oldEl.parentNode.replaceChild(newEl, oldEl);
+	/* Since we just removed the old element from the DOM, return a reference
+	to the new element, which can be used to restore variable references. */
+	return newEl;
+};
 
 function getJson() {
     return fetch('https://corsproxy.io/?https://www.jsonkeeper.com/b/R41L')
@@ -26,12 +38,14 @@ function getJson() {
 async function displayData(){
 	const results= document.querySelector('.results');
 	const data= await(getJson());
-	let array=[];
+	let array= '';
 	data.forEach((element,index) => {
 		//empty alt for aria as are decorative img
-	    array.push(`<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`);
+	    array+=(`<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`);
     });
-	results.innerHTML = array.join(' ');
+	//replaceHtml('.results', array)
+	//results.innerHTML = array.join(' ');
+	$('.results').append(array);
 }
 
 
