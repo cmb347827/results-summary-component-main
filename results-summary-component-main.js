@@ -38,14 +38,14 @@ function getJson() {
 async function displayData(){
 	const results= document.querySelector('.results');
 	const data= await(getJson());
-	let array= '';
+	let array= []; let string='';
 	data.forEach((element,index) => {
 		//empty alt for aria as are decorative img
-	    array+=(`<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`);
+	    string+=`<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`;
     });
-	//replaceHtml('.results', array)
+	//replaceHtml('.results', string)
 	//results.innerHTML = array.join(' ');
-	$('.results').append(array);
+	$('.results').append(string);
 }
 
 
