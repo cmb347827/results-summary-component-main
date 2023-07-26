@@ -1,5 +1,6 @@
 'use strict'; 
 //import data from 'data.json' assert { type: 'json' };
+import { data } from "data.js";
 
 const colors ={
 	'Almost White': 'hsl(0, 0%, 98%)',
@@ -35,7 +36,7 @@ function getJson() {
        console.error(err);
      });  
 }
-
+/*
 async function displayData(){
 	const results= document.querySelector('.results');
 	const data= await(getJson());
@@ -48,7 +49,17 @@ async function displayData(){
 	//results.innerHTML = array.join(' ');
 	$('.results').append(string);
 }
-
+*/
+function displayData(){
+	let array= []; let string='';
+	data.forEach((element,index) => {
+		//empty alt for aria as are decorative img
+	    string+=`<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`;
+    });
+	//replaceHtml('.results', string)
+	//results.innerHTML = array.join(' ');
+	$('.results').append(string);
+}
 
 
 $(window).on('load',function(){
