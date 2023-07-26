@@ -1,6 +1,6 @@
 'use strict'; 
-//import data from 'data.json' assert { type: 'json' };
-import { data } from "data.js";
+
+//import { data } from "https://file.io/CFTJnN9CnQv1";
 
 const colors ={
 	'Almost White': 'hsl(0, 0%, 98%)',
@@ -36,7 +36,7 @@ function getJson() {
        console.error(err);
      });  
 }
-/*
+
 async function displayData(){
 	const results= document.querySelector('.results');
 	const data= await(getJson());
@@ -49,8 +49,8 @@ async function displayData(){
 	//results.innerHTML = array.join(' ');
 	$('.results').append(string);
 }
-*/
-function displayData(){
+
+/*function displayData(){
 	let array= []; let string='';
 	data.forEach((element,index) => {
 		//empty alt for aria as are decorative img
@@ -59,7 +59,7 @@ function displayData(){
 	//replaceHtml('.results', string)
 	//results.innerHTML = array.join(' ');
 	$('.results').append(string);
-}
+}*/
 
 
 $(window).on('load',function(){
