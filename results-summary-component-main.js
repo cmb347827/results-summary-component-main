@@ -1,4 +1,5 @@
 'use strict'; 
+import data from 'data.json' assert { type: 'json' };
 
 const colors ={
 	'Almost White': 'hsl(0, 0%, 98%)',
@@ -37,7 +38,7 @@ function getJson() {
 
 async function displayData(){
 	const results= document.querySelector('.results');
-	const data= await(getJson());
+	//const data= await(getJson());
 	let array= []; let string='';
 	data.forEach((element,index) => {
 		//empty alt for aria as are decorative img
