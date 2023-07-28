@@ -43,11 +43,11 @@ async function displayData(){
 	let array= []; let string='';
 	data.forEach((element,index) => {
 		//empty alt for aria as are decorative img
-	    string+=`<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`;
+	    array.push(`<p><img class='icon' alt='' src=${element.icon}> ${element.category}  <span class='right-dark-font${index}'>${element.score}<span class='inherit-position light-font'>/100</span></span></p>`);
     });
 	//replaceHtml('.results', string)
-	//results.innerHTML = array.join(' ');
-	$('.results').append(string);
+	results.innerHTML = array.join(' ');
+	//$('.results').append(string);
 }
 
 
