@@ -78,7 +78,7 @@ Users should be able to:
 
 ### Useful resources
 
--[WAI region tutorial](https://www.w3.org/WAI/tutorials/page-structure/regions/)
+-[WAI region tutorial](https://www.w3.org/WAI/tutorials/page-structure/regions/).
 -[Writing JS with accessiblity in mind](https://medium.com/@matuzo/writing-javascript-with-accessibility-in-mind-a1f6a5f467b9)
 -[append vs html vs innerHTML performance](https://stackoverflow.com/questions/18393981/append-vs-html-vs-innerhtml-performance)
 -[replaceHTML](https://blog.stevenlevithan.com/archives/faster-than-innerhtml)
